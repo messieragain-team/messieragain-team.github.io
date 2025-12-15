@@ -1,0 +1,224 @@
+body {
+    margin: 0%;
+    font-family: "Share Tech", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+header {
+    /* flexbox in header */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: baseline;
+
+    border-bottom: #5b53fa 2px solid;
+    padding-bottom: 1%;
+
+    /*
+    gradient shadow effect
+     => box-shadow: offset_x offset_y blur_radius spread_radius color;
+    This shadow effect blurs two black colors, i.e. overlap two shadows.
+    */
+    box-shadow: 0 0 20px 0 #00000014, 0 10px 25px 0 #0000001f;
+}
+
+.headericon {
+
+    background-color: #ffffff;
+    color: #5b53fa;
+    text-decoration: none;
+
+    width: 20%;
+
+    text-align: center;
+
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.headericon:hover {
+    background-color: #5b53fa;
+    color: white;
+    text-decoration: underline;
+}
+
+
+#logo {
+    flex-grow: 1;
+
+    text-align: left;
+    text-decoration: none;
+
+    margin-top: 1%;
+    margin-right: 0%;
+    align-items: left;
+    width: 80%;
+}
+
+#logo:hover {
+
+    background-color: #ffffff;
+    color: #5b53fa;
+    text-decoration: none;
+}
+
+#logoimg {
+    width: 200px;
+}
+
+.headerlink {
+    color: inherit;
+    text-decoration: inherit;
+    font-size: 20px;
+}
+
+.headerlink:active {
+    font-size: 22px;
+}
+
+a {
+    text-decoration: none;
+}
+
+#motto {
+    width: 50%;
+    margin-right: 0%;
+    margin-top: 83px;
+    margin-bottom: 83px;
+}
+
+h1 {
+    font-size: 100px;
+    margin: 0%;
+    margin-left: 2%;
+}
+
+
+
+
+#motto_description {
+    margin-left: 2%;
+    font-size: 40px;
+}
+
+
+
+.tm {
+    background-color: #5b53fa;
+    color: white;
+}
+
+#advbox {
+    width: 48%;
+    margin-top: 83px;
+    margin-bottom: 83px;
+    margin-right: 2%;
+}
+
+#advimg {
+    /* fully fill advbox */
+    width: 100%;
+}
+
+#intro {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#content {
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+
+.contentbox {
+    text-align: center;
+    margin: 0%;
+    width: 100%;
+}
+
+ul {
+    width: 96%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0%;
+    padding-bottom: 20px;
+}
+
+#wemake {
+    background-color: #5b53fa;
+    color: white;
+    width: 100%;
+}
+
+#webelieve {
+    background-color: white;
+    color: black;
+    width: 100%;
+}
+
+#wedo {
+    background-color: #5b53fa;
+    color: white;
+    width: 100%;
+}
+
+
+li {
+    list-style-type: none;
+    width: 32%;
+}
+
+h2 {
+    padding-top: 20px;
+    margin-bottom: 8px;
+    margin-top: 0%;
+    font-size: 40px;
+    text-align: center;
+}
+
+span {
+    margin: 0%;
+    padding: 0%;
+}
+
+h3 {
+    font-size: 25px;
+    margin-bottom: 0%;
+}
+
+#highlightgreen {
+    background-color: #18a118;
+    color: white;
+}
+
+footer {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+}
+
+button {
+    width: 70px;
+    height: 35px;
+    text-align: center;
+    font-family: "Share Tech", sans-serif;
+    font-size: 20px;
+    background-color: #5b53fa;
+    color: white;
+    border: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+input {
+    margin: 1%;
+}
