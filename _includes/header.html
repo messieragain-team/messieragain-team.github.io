@@ -1,0 +1,27 @@
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="{{ "/" | relative_url }}">
+      <img class="brand-logo" src="{{ "/assets/images/logo1.jpeg" | relative_url }}" alt="Messier Again logo">
+      <span>Messier Again</span>
+    </a>
+    <nav>
+      <ul class="nav-list">
+        <li>
+          <a class="nav-link{% if page.url == "/" or page.url == "/index.html" %} is-active{% endif %}" href="{{ "/" | relative_url }}">Home</a>
+        </li>
+        <li>
+          <a class="nav-link{% if page.url == "/team.html" %} is-active{% endif %}" href="{{ "/team.html" | relative_url }}">Team</a>
+        </li>
+        <li>
+          <a class="nav-link{% if page.url == "/progress.html" %} is-active{% endif %}" href="{{ "/progress.html" | relative_url }}">Progress</a>
+        </li>
+        <li>
+          <a class="nav-link{% if page.url == "/why-us.html" %} is-active{% endif %}" href="{{ "/why-us.html" | relative_url }}">Why Us</a>
+        </li>
+        <li>
+          <a class="nav-link{% if page.url == "/contact.html" %} is-active{% endif %}" href="{{ "/contact.html" | relative_url }}">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
