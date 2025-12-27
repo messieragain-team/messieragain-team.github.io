@@ -1,0 +1,5 @@
+vendor
+.bundle
+_site
+gemfile
+Gemfile.lock
