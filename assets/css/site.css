@@ -147,13 +147,21 @@ img {
 }
 
 .hero-subtitle {
-  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-size: clamp(2rem, 3vw, 2rem);
   max-width: 640px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 1.0);
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 1.2s ease 0.6s, transform 1.2s ease 0.6s;
 }
+
+.hlspan {
+    background: linear-gradient(90deg, #689cfc 0%, #9968fc 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
 
 .intro-ended .hero-title,
 .intro-ended .hero-subtitle {
@@ -242,13 +250,12 @@ main {
 }
 
 .section-content h2 {
-  font-size: clamp(2rem, 3.6vw, 3.4rem);
-  letter-spacing: 0.03em;
+  font-size: clamp(2.6rem, 5vw, 5rem);
   font-weight: 700;
 }
 
 .section-content p {
-  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  font-size: clamp(2rem, 3vw, 2rem);
   color: inherit;
 }
 
