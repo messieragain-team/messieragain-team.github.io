@@ -1,6 +1,6 @@
 :root {
   --font-header: "Sora", sans-serif;
-  --font-primary: "HelveticaLocal", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-primary: "HelveticaLocal";
   --black: #0a0a0a;
   --white: #f8f8f6;
   --gray: #b9b9b9;
@@ -11,8 +11,16 @@
 
 @font-face {
   font-family: "HelveticaLocal";
-  src: url("../fonts/Helvetica.ttc") format("truetype");
-  font-weight: 300 700;
+  src: url("../fonts/Helvetica-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HelveticaLocal";
+  src: url("../fonts/Helvetica-Bold.ttf") format("truetype");
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -132,6 +140,7 @@ img {
 
 .hero-title {
   font-size: clamp(2.6rem, 5vw, 5rem);
+  font-weight: 700;
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 1.2s ease 0.35s, transform 1.2s ease 0.35s;
@@ -235,6 +244,7 @@ main {
 .section-content h2 {
   font-size: clamp(2rem, 3.6vw, 3.4rem);
   letter-spacing: 0.03em;
+  font-weight: 700;
 }
 
 .section-content p {
@@ -307,6 +317,7 @@ main {
 .media-text-inner h2 {
   font-size: clamp(2rem, 3.4vw, 3.2rem);
   letter-spacing: 0.03em;
+  font-weight: 700;
 }
 
 .media-text-inner p {
@@ -396,9 +407,8 @@ main {
 
 .page-main h1 {
   font-size: clamp(2.4rem, 4vw, 4rem);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
   margin-bottom: 16px;
+  font-weight: 700;
 }
 
 .page-main p {

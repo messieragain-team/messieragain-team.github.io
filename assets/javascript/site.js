@@ -2,9 +2,32 @@ const introVideo = document.querySelector("#intro-video");
 const body = document.body;
 
 if (introVideo) {
+  let introTimeoutId;
+
+  const showIntroText = () => {
+    body.classList.add("intro-ended");
+  };
+
+  const scheduleIntroEnd = () => {
+    if (introTimeoutId) {
+      clearTimeout(introTimeoutId);
+    }
+    const duration = Number.isFinite(introVideo.duration) ? introVideo.duration : 0;
+    const fallback = 3;
+    const wait = duration > 0 ? duration / introVideo.playbackRate : fallback;
+    introTimeoutId = setTimeout(showIntroText, wait * 1000);
+  };
+
   const startPlayback = () => {
     introVideo.playbackRate = 3;
-    introVideo.play().catch(() => {});
+    introVideo
+      .play()
+      .then(() => {
+        scheduleIntroEnd();
+      })
+      .catch(() => {
+        scheduleIntroEnd();
+      });
   };
 
   if (introVideo.readyState >= 2) {
@@ -12,10 +35,6 @@ if (introVideo) {
   } else {
     introVideo.addEventListener("canplay", startPlayback, { once: true });
   }
-
-  const showIntroText = () => {
-    body.classList.add("intro-ended");
-  };
 
   introVideo.addEventListener("ended", showIntroText);
   introVideo.addEventListener("error", showIntroText);
