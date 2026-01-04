@@ -155,3 +155,28 @@ const onScroll = () => {
 window.addEventListener("scroll", onScroll, { passive: true });
 window.addEventListener("resize", updateTransitions);
 updateTransitions();
+
+const staggerGroups = document.querySelectorAll("[data-stagger]");
+
+if (staggerGroups.length) {
+  body.classList.add("stagger-ready");
+  const staggerObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+        const items = Array.from(entry.target.querySelectorAll(".notice-card"));
+        items.forEach((item, index) => {
+          setTimeout(() => {
+            item.classList.add("is-live");
+          }, index * 160);
+        });
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  staggerGroups.forEach((group) => staggerObserver.observe(group));
+}

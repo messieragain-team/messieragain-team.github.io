@@ -447,6 +447,142 @@ main {
   max-width: 90%;
 }
 
+.page-intro {
+  max-width: 720px;
+  display: grid;
+  gap: 12px;
+}
+
+.essay-frame {
+  background: var(--white);
+  color: #111;
+  padding: 8vw;
+  display: grid;
+  gap: 48px;
+}
+
+.essay-block {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  align-items: center;
+}
+
+.essay-block.reverse .essay-media {
+  order: -1;
+}
+
+.essay-text {
+  display: grid;
+  gap: 12px;
+}
+
+.essay-text h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 700;
+}
+
+.essay-text p {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  color: #333;
+}
+
+.essay-media img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+.contact-page {
+  padding: 10vw 8vw;
+}
+
+.contact-notice {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  gap: 28px;
+}
+
+.notice-intro {
+  display: grid;
+  gap: 12px;
+}
+
+.notice-title {
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  font-weight: 700;
+}
+
+.notice-lede {
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  color: #222;
+}
+
+.notice-list {
+  list-style: none;
+  display: grid;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.notice-card {
+  position: relative;
+  background: #fff;
+  border-radius: 18px;
+  padding: 24px 24px 24px 64px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.08);
+  transition: transform 0.6s ease, opacity 0.6s ease, border-color 0.6s ease;
+}
+
+.notice-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
+.notice-marker {
+  position: absolute;
+  left: 24px;
+  top: 28px;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--hl-start), var(--hl-end));
+  box-shadow: 0 0 0 6px rgba(108, 198, 255, 0.12);
+}
+
+.notice-heading {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.notice-text {
+  font-size: 1rem;
+  color: #333;
+}
+
+.notice-text a {
+  color: #0a0a0a;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+body.stagger-ready .notice-card {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+body.stagger-ready .notice-card.is-live {
+  opacity: 1;
+  transform: translateY(0);
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
 .team-cards {
   background: var(--white);
   color: #111;
