@@ -2,7 +2,47 @@
 layout: mine
 title: Messier Again | Team
 ---
-<main class="page-main">
-  <h1>Team</h1>
-  <p>TEAM PAGE PLACEHOLDER CONTENT</p>
-</main>
+<section class="hero hero-team" id="team-hero">
+  <div class="hero-media">
+    <img class="hero-photo" src="{{ "/assets/images/team.jpeg" | relative_url }}" alt="Team photo">
+    <div class="hero-scrim"></div>
+  </div>
+  <div class="hero-overlay">
+    <h1 class="hero-title">The team building the future</h1>
+  </div>
+</section>
+
+<section class="team-cards">
+  <article class="team-card">
+    <div class="team-card-media">
+      <img src="{{ "/assets/images/jia.jpeg" | relative_url }}" alt="Jia portrait">
+    </div>
+    <div class="team-card-body">
+      <h2>Jia Yoo</h2>
+      <h3>Team Leader</h3>
+      <p>Jia is a kind, passionate, and thoughtful leader of our team. She was the first to come across the Conrad Challenge, an opportunity that led to the birth of Starjection. Her leadership is what keeps our team together through weeks of solving difficult challenges.</p>
+    </div>
+  </article>
+
+  <article class="team-card">
+    <div class="team-card-media">
+      <img src="{{ "/assets/images/aiden.jpeg" | relative_url }}" alt="Aiden portrait">
+    </div>
+    <div class="team-card-body">
+      <h2>Aiden Ghim</h2>
+      <h3>Lead Engineer / Developer</h3>
+      <p>Aiden leads the technological innovations of the Messier Again team. With a background in building interesting gizmos and programs, big and small, Aiden brought invaluable skills that drove the team forward. He first presented the idea of building an affordable, high-quality planetarium.</p>
+    </div>
+  </article>
+
+  <article class="team-card">
+    <div class="team-card-media">
+      <img src="{{ "/assets/images/yubin.jpeg" | relative_url }}" alt="Yubin portrait">
+    </div>
+    <div class="team-card-body">
+      <h2>Yubin</h2>
+      <h3>Lead Operations</h3>
+      <p>Yubin drives hourslong discussions with sharp observation. Nearly every aspect of our product was scrutinized, critiqued, and greatly improved by Yubin session after session. He is a visionary of the team, deeply involved in both leadership and technical aspects of our team.</p>
+    </div>
+  </article>
+</section>

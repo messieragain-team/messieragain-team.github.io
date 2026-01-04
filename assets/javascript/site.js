@@ -38,6 +38,8 @@ if (introVideo) {
 
   introVideo.addEventListener("ended", showIntroText);
   introVideo.addEventListener("error", showIntroText);
+} else {
+  body.classList.add("intro-ended");
 }
 
 const revealItems = document.querySelectorAll(".reveal");
