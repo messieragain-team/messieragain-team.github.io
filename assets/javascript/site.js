@@ -180,3 +180,115 @@ if (staggerGroups.length) {
 
   staggerGroups.forEach((group) => staggerObserver.observe(group));
 }
+
+const capsuleLinks = document.querySelectorAll(".capsule-link");
+
+if (capsuleLinks.length) {
+  const capsuleObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+        entry.target.classList.add("is-animate");
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.4 }
+  );
+
+  capsuleLinks.forEach((link) => capsuleObserver.observe(link));
+}
+
+const loopVideos = document.querySelectorAll("video[data-loop-start][data-loop-end]");
+
+if (loopVideos.length) {
+  loopVideos.forEach((video) => {
+    const start = parseFloat(video.dataset.loopStart);
+    const end = parseFloat(video.dataset.loopEnd);
+    const rate = parseFloat(video.dataset.playbackRate) || 1;
+
+    let loopStart = start;
+    let loopEnd = end;
+
+    const isValidRange = () =>
+      Number.isFinite(loopStart) && Number.isFinite(loopEnd) && loopEnd > loopStart;
+
+    const clampToStart = () => {
+      if (!isValidRange()) {
+        return;
+      }
+      if (video.currentTime < loopStart || video.currentTime > loopEnd) {
+        video.currentTime = loopStart;
+      }
+    };
+
+    const handleLoop = () => {
+      if (!isValidRange()) {
+        return;
+      }
+      if (video.currentTime >= loopEnd - 0.03) {
+        video.currentTime = loopStart;
+      }
+    };
+
+    const setupLoop = () => {
+      const duration = Number.isFinite(video.duration) ? video.duration : 0;
+      if (duration > 0) {
+        loopEnd = Math.min(end, duration - 0.05);
+        loopStart = Math.min(start, loopEnd - 0.1);
+      }
+
+      if (!isValidRange()) {
+        return;
+      }
+
+      video.loop = false;
+      video.playbackRate = rate;
+      video.currentTime = loopStart;
+
+      const playAfterSeek = () => {
+        if (video.dataset.inView === "true") {
+          video.play().catch(() => {});
+        }
+      };
+
+      video.addEventListener("seeked", playAfterSeek, { once: true });
+      video.addEventListener("timeupdate", handleLoop);
+      video.addEventListener("seeking", clampToStart);
+
+      const intervalId = setInterval(handleLoop, 120);
+      video.addEventListener(
+        "ended",
+        () => {
+          clearInterval(intervalId);
+        },
+        { once: true }
+      );
+    };
+
+    if (video.readyState >= 1) {
+      setupLoop();
+    } else {
+      video.addEventListener("loadedmetadata", setupLoop, { once: true });
+    }
+
+    const visibilityObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.dataset.inView = "true";
+            clampToStart();
+            video.play().catch(() => {});
+          } else {
+            video.dataset.inView = "false";
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    visibilityObserver.observe(video);
+  });
+}
