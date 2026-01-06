@@ -606,15 +606,37 @@ main {
 .essay-media {
   margin: 28px 0;
   text-align: center;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.essay-media-frame {
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000;
+}
+
+.essay-media-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .essay-media img {
   width: 100%;
-  max-width: 720px;
   height: auto;
   object-fit: cover;
+  display: block;
   border-radius: 14px;
-  margin: 0 auto;
+}
+
+.essay-media-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
