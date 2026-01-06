@@ -215,7 +215,7 @@ main {
 }
 
 .full-section[data-theme="light"] {
-  background: linear-gradient(180deg, #f9f9f7 0%, #f1f1ee 100%);
+  background: #ffffff;
   color: #121212;
 }
 
@@ -233,7 +233,7 @@ main {
 .frame-transition::before {
   content: "";
   position: absolute;
-  inset: var(--frame-inset, 0px);
+  inset: calc(var(--frame-inset, 0px) - 1px);
   background: var(--frame-bg, transparent);
   border-radius: var(--frame-radius, 0px);
   z-index: 0;
@@ -265,6 +265,14 @@ main {
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
+}
+
+#specialx {
+  margin-bottom: 0px;
+}
+
+#specialy {
+  margin-top: 0px;
 }
 
 .capsule-link {

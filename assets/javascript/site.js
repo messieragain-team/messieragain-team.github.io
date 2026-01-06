@@ -93,21 +93,26 @@ const updateTransitions = () => {
     const speed = Number(section.dataset.transitionSpeed) || 1.6;
     const trigger = section.dataset.transitionTrigger;
     const style = section.dataset.transitionStyle;
+    const offsetRaw = Number(section.dataset.transitionOffset) || 0;
+    const offsetPx = Math.abs(offsetRaw) <= 1 ? offsetRaw * viewport : offsetRaw;
     let progress = 0;
 
     if (trigger === "exit") {
-      progress = clamp(((viewport - rect.bottom) / (viewport * 0.6)) * speed, 0, 1);
+      progress = clamp(((viewport - rect.bottom - offsetPx) / (viewport * 0.6)) * speed, 0, 1);
     } else {
-      progress = clamp(((viewport - rect.top) / (viewport + rect.height)) * speed, 0, 1);
+      progress = clamp(((viewport - rect.top - offsetPx) / (viewport + rect.height)) * speed, 0, 1);
     }
 
     if (style === "frame") {
       const insetMax = 40;
       const radiusMax = 28;
+      const threshold = 0.12;
+      const adjusted =
+        progress <= threshold ? 0 : (progress - threshold) / (1 - threshold);
       const inset =
-        type === "expand" ? insetMax * (1 - progress) : insetMax * progress;
+        type === "expand" ? insetMax * (1 - adjusted) : insetMax * adjusted;
       const radius =
-        type === "expand" ? radiusMax * (1 - progress) : radiusMax * progress;
+        type === "expand" ? radiusMax * (1 - adjusted) : radiusMax * adjusted;
       section.style.setProperty("--frame-inset", `${inset.toFixed(1)}px`);
       section.style.setProperty("--frame-radius", `${radius.toFixed(1)}px`);
       section.style.setProperty("--section-scale", "1");
