@@ -612,7 +612,6 @@ main {
 }
 
 .essay-media-frame {
-  aspect-ratio: 16 / 9;
   border-radius: 14px;
   overflow: hidden;
   background: #000;
